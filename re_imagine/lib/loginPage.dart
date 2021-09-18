@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -10,6 +11,7 @@ class LoginPage extends StatelessWidget {
         title: Text('ReImagine'),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
             padding: EdgeInsets.all(10),
@@ -34,7 +36,24 @@ class LoginPage extends StatelessWidget {
             onTap: () {
               // TODO login function
             },
-            child: Container(),
+            child: Container(
+              margin: const EdgeInsets.all(10.0),
+              width: 200.0,
+              height: 50.0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: Colors.red,
+              ),
+              child: Center(
+                  child: Text(
+                'Login',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              )),
+            ),
           ),
         ],
       ),
