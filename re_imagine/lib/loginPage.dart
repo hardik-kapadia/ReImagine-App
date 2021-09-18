@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -7,56 +8,77 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('ReImagine'),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: EdgeInsets.all(10),
-            child: TextField(
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'User Name',
-                  hintText: 'Enter valid mail id as abc@gmail.com'),
+      backgroundColor: kBackgroundColor,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image(
+              image: AssetImage('assets/images/logo.png'),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(10),
-            child: TextField(
-              obscureText: true,
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Password',
-                  hintText: 'Enter your secure password'),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              // TODO login function
-            },
-            child: Container(
-              margin: const EdgeInsets.all(10.0),
-              width: 200.0,
-              height: 50.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                color: Colors.red,
+            TextfieldContainer(
+              child: TextField(
+                decoration: InputDecoration(
+                    hintText: 'Email', hintStyle: TextStyle(color: kTextColor)),
               ),
-              child: Center(
-                  child: Text(
-                'Login',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              )),
             ),
-          ),
-        ],
+            SizedBox(
+              height: 20.0,
+            ),
+            TextfieldContainer(
+                child: TextField(
+              decoration: InputDecoration(
+                  hintText: 'Password',
+                  hintStyle: TextStyle(color: kTextColor)),
+            )),
+            SizedBox(
+              height: 20.0,
+            ),
+            GestureDetector(
+              onTap: () {
+                // TODO login function
+              },
+              child: Container(
+                margin: const EdgeInsets.all(10.0),
+                width: 200.0,
+                height: 50.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: kHeadingColor,
+                ),
+                child: Center(
+                    child: Text(
+                  'Login',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                )),
+              ),
+            ),
+          ],
+        ),
       ),
     );
+  }
+}
+
+class TextfieldContainer extends StatelessWidget {
+  // final String text;
+
+  final Widget child;
+  TextfieldContainer({required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Container(
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+        width: size.width * 0.8,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50), color: kTextFieldColor),
+        child: child);
   }
 }
