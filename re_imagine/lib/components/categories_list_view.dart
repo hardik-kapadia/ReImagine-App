@@ -16,7 +16,7 @@ class CategoryListView extends StatelessWidget {
   }) : super(key: key);
 
   final List<SubredditCategory> list =
-      List.filled(5, new SubredditCategory(1, "battle sage"));
+      List.filled(5, new SubredditCategory(1, "battle"));
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class CategoryListView extends StatelessWidget {
               style: TextStyle(color: kTextColor, fontSize: 25),
             )),
         Container(
-            margin: EdgeInsets.only(top: 20),
+            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             height: 85,
             child: ListView.builder(
                 // This next line does the trick.
@@ -56,7 +56,7 @@ class CategoryListView extends StatelessWidget {
                         style: TextStyle(color: Colors.red),
                       ),
                     ),
-                    margin: EdgeInsets.all(10),
+                    margin: EdgeInsets.all(8),
                   );
                 })),
       ],
