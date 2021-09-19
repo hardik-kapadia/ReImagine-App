@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'constants.dart';
+import '../constants.dart';
+import '../components/textfield_container.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -65,20 +65,20 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-class TextfieldContainer extends StatelessWidget {
-  // final String text;
+// class TextfieldContainer extends StatelessWidget {
+//   // final String text;
 
-  final Widget child;
-  TextfieldContainer({required this.child});
+//   final Widget child;
+//   TextfieldContainer({required this.child});
 
-  @override
-  Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Container(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-        width: size.width * 0.8,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50), color: kTextFieldColor),
-        child: child);
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     Size size = MediaQuery.of(context).size;
+//     return Container(
+//         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+//         width: size.width * 0.8,
+//         decoration: BoxDecoration(
+//             borderRadius: BorderRadius.circular(50), color: kTextFieldColor),
+//         child: child);
+//   }
+// }

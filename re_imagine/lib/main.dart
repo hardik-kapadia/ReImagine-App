@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'loginPage.dart';
+import 'screens/login_page.dart';
+import 'screens/home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,7 +12,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Reimagine",
-      home: LoginPage(),
+      // home: LoginPage(),
+      home: HomePage(),
     );
   }
 }
