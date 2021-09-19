@@ -13,7 +13,10 @@ class HomePage extends StatelessWidget {
       backgroundColor: kBackgroundColor,
       body: Column(
         children: [
-          Image.asset('assets/images/logo.png'),
+          Container(
+            child: Image.asset('assets/images/logo.png'),
+            margin: EdgeInsets.only(top: 20),
+          ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBarComponent(),

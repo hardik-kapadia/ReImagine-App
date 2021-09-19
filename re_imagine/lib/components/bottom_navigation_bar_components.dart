@@ -2,10 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import '../constants.dart';
 
-class BottomNavigationBarComponent extends StatelessWidget {
+class BottomNavigationBarComponent extends StatefulWidget {
   const BottomNavigationBarComponent({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<BottomNavigationBarComponent> createState() =>
+      _BottomNavigationBarComponentState();
+}
+
+class _BottomNavigationBarComponentState
+    extends State<BottomNavigationBarComponent> {
+  int _selectedIndex = 0;
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +50,8 @@ class BottomNavigationBarComponent extends StatelessWidget {
           label: '',
         ),
       ],
+      currentIndex: _selectedIndex,
+      onTap: _onItemTapped,
     );
   }
 }
