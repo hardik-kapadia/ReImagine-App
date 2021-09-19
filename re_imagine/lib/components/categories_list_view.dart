@@ -16,7 +16,7 @@ class CategoryListView extends StatelessWidget {
   }) : super(key: key);
 
   final List<SubredditCategory> list =
-      List.filled(5, new SubredditCategory(1, "battle"));
+      List.filled(5, new SubredditCategory(1, "battle sage"));
 
   @override
   Widget build(BuildContext context) {
