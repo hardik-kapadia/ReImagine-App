@@ -5,8 +5,8 @@
 // Future<void> main() async {
 //   // Create the `Reddit` instance and authenticated
 //   Reddit reddit = await Reddit.createScriptInstance(
-//     clientId: Config.CLIENT_ID,
-//     clientSecret: Config.SECRET,
-//     userAgent: Config.AGENTNAME,
+//     clientId: CLIENT_ID,
+//     clientSecret: SECRET,
+//     userAgent: AGENTNAME,
 //   );
 // }
