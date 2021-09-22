@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../constants.dart';
 
 class SubredditCategory {
@@ -28,7 +29,7 @@ class CategoryListView extends StatelessWidget {
             margin: EdgeInsets.only(left: 30),
             child: Text(
               "Categories",
-              style: TextStyle(color: kTextColor, fontSize: 25),
+              style: GoogleFonts.ubuntu(color: Colors.white, fontSize: 25),
             )),
         Container(
             margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -53,7 +54,7 @@ class CategoryListView extends StatelessWidget {
                     child: Center(
                       child: Text(
                         "Hello ${list[index].name}",
-                        style: TextStyle(color: Colors.red),
+                        style: GoogleFonts.ubuntu(color: Colors.white),
                       ),
                     ),
                     margin: EdgeInsets.all(8),
