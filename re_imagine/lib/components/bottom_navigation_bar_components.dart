@@ -1,3 +1,4 @@
+import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import '../constants.dart';
@@ -15,6 +16,7 @@ class BottomNavigationBarComponent extends StatefulWidget {
 class _BottomNavigationBarComponentState
     extends State<BottomNavigationBarComponent> {
   int _selectedIndex = 0;
+  int selectediconsize = 32;
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -34,7 +36,9 @@ class _BottomNavigationBarComponentState
       showUnselectedLabels: false,
       items: [
         BottomNavigationBarItem(
-          icon: Icon(LineIcons.home),
+          icon: Icon(
+            LineIcons.home,
+          ),
           label: '',
         ),
         BottomNavigationBarItem(
