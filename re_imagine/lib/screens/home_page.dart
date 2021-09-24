@@ -11,12 +11,14 @@ class Post {
   String subreddit;
   String title;
   int upvotes;
+  String filename;
 
   Post(this.id,
       {this.category = "Standard",
       this.subreddit = "ImaginarySomething",
       this.title = "Cool stuff",
-      this.upvotes = 68});
+      this.upvotes = 68,
+      this.filename = "placeholder.jpg"});
 }
 
 class HomePage extends StatelessWidget {
@@ -24,15 +26,15 @@ class HomePage extends StatelessWidget {
 
   List<Post> posts = [
     Post(1),
-    Post(2),
-    Post(3),
+    Post(2, filename: "assassin.jpg"),
+    Post(3, filename: "assassin1.jpg"),
     Post(4),
-    Post(5),
+    Post(5, filename: "assassin.jpg"),
     Post(6),
-    Post(7),
+    Post(7, filename: "assassin1.jpg"),
+    Post(8, filename: "assassin.jpg"),
     Post(8),
-    Post(8),
-    Post(10)
+    Post(10, filename: "assassin.jpg")
   ];
 
   // List<Widget> postList = [
@@ -81,7 +83,8 @@ class HomePage extends StatelessWidget {
                         children: <Widget>[
                           //Center(child: CircularProgressIndicator()),
                           Center(
-                            child: Image.asset("assets/images/placeholder.jpg"),
+                            child: Image.asset(
+                                "assets/images/${posts[index].filename}"),
                           ),
                         ],
                       ),
