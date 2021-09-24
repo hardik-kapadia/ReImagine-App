@@ -7,6 +7,26 @@ import '../components/categories_list_view.dart';
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
 
+  List<Widget> postList = [
+    Row(
+      children: [
+        Expanded(
+          child: Container(
+            margin: EdgeInsets.all(10),
+            color: Colors.yellow,
+            height: 100,
+          ),
+        ),
+        Expanded(
+          child: Container(
+            margin: EdgeInsets.all(10),
+            color: Colors.orange,
+            height: 100,
+          ),
+        ),
+      ],
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,12 +37,15 @@ class HomePage extends StatelessWidget {
             child: Image.asset('assets/images/logo.png'),
             margin: EdgeInsets.only(top: 20),
           ),
-          CategoryListView()
+          CategoryListView(),
+          Expanded(
+            child: ListView(
+              children: postList,
+            ),
+          )
         ],
       ),
       bottomNavigationBar: BottomNavigationBarComponent(),
     );
   }
 }
-
-
