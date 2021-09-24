@@ -4,10 +4,8 @@ import '../constants.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class HomeFeedPosts extends StatelessWidget {
-  HomeFeedPosts({
-    Key? key
-  }) : super(key: key);
-  
+  HomeFeedPosts({Key? key}) : super(key: key);
+
   final List<Post> posts = [
     Post(1),
     Post(2, filename: "assassin.jpg"),
@@ -32,6 +30,8 @@ class HomeFeedPosts extends StatelessWidget {
         itemCount: posts.length,
         itemBuilder: (context, index) {
           return Card(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             color: kBackgroundColor,
             child: Column(
               children: <Widget>[
@@ -39,8 +39,13 @@ class HomeFeedPosts extends StatelessWidget {
                   children: <Widget>[
                     //Center(child: CircularProgressIndicator()),
                     Center(
-                      child: Image.asset(
-                          "assets/images/${posts[index].filename}"),
+                      child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10)
+                              
+                              ),
+                          child: Image.asset(
+                              "assets/images/${posts[index].filename}")),
                     ),
                   ],
                 ),
@@ -50,8 +55,8 @@ class HomeFeedPosts extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         '${posts[index].title}',
-                        style:
-                            const TextStyle(color: kTextColor),textAlign: TextAlign.center,
+                        style: const TextStyle(color: kTextColor),
+                        textAlign: TextAlign.center,
                       ),
                     ],
                   ),
