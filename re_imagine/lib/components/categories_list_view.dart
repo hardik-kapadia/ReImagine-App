@@ -1,15 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../constants.dart';
+import 'package:re_imagine/model/subreddit_category.dart';
 
-class SubredditCategory {
-  int id;
-  String name;
-
-  SubredditCategory(this.id, this.name);
-
-  String get() => name;
-}
 
 class CategoryListView extends StatelessWidget {
   CategoryListView({
