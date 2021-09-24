@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:re_imagine/screens/search_page.dart';
 import 'screens/login_page.dart';
 import 'screens/home_page.dart';
 
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Reimagine",
       // home: LoginPage(),
-      home: HomePage(),
+      // home: HomePage(),
+      home: SearchPage(),
     );
   }
 }

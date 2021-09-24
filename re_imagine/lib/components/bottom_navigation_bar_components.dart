@@ -3,22 +3,21 @@ import 'package:line_icons/line_icons.dart';
 import '../constants.dart';
 
 class BottomNavigationBarComponent extends StatefulWidget {
-  const BottomNavigationBarComponent({
-    Key? key,
-  }) : super(key: key);
-
+  final int selectedIndex;
+  const BottomNavigationBarComponent(this.selectedIndex);
   @override
   State<BottomNavigationBarComponent> createState() =>
-      _BottomNavigationBarComponentState();
+      _BottomNavigationBarComponentState(selectedIndex);
 }
 
 class _BottomNavigationBarComponentState
     extends State<BottomNavigationBarComponent> {
-  int _selectedIndex = 0;
-  int selectediconsize = 32;
+  int selectedIndex = 0;
+  _BottomNavigationBarComponentState(this.selectedIndex);
+  @override
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      selectedIndex = index;
     });
   }
 
@@ -53,7 +52,7 @@ class _BottomNavigationBarComponentState
           label: '',
         ),
       ],
-      currentIndex: _selectedIndex,
+      currentIndex: selectedIndex,
       onTap: _onItemTapped,
     );
   }

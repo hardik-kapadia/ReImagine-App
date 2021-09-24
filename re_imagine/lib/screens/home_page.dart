@@ -5,11 +5,8 @@ import '../components/bottom_navigation_bar_components.dart';
 import '../components/categories_list_view.dart';
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
-
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +22,7 @@ class HomePage extends StatelessWidget {
           HomeFeedPosts(),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBarComponent(),
+      bottomNavigationBar: BottomNavigationBarComponent(0),
     );
   }
 }
-
