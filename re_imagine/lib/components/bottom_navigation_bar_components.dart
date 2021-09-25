@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:re_imagine/screens/home_page.dart';
+import 'package:re_imagine/screens/search_page.dart';
 import '../constants.dart';
 
 class BottomNavigationBarComponent extends StatefulWidget {
@@ -14,11 +16,13 @@ class _BottomNavigationBarComponentState
     extends State<BottomNavigationBarComponent> {
   int selectedIndex = 0;
   _BottomNavigationBarComponentState(this.selectedIndex);
+
+  List<Widget> routes = [HomePage(), SearchPage(), HomePage(), HomePage()];
+
   @override
   void _onItemTapped(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => routes[index]));
   }
 
   @override
@@ -52,7 +56,7 @@ class _BottomNavigationBarComponentState
           label: '',
         ),
       ],
-      currentIndex: selectedIndex,
+      currentIndex: (selectedIndex),
       onTap: _onItemTapped,
     );
   }
