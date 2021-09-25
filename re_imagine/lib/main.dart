@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       // home: LoginPage(),
       // home: HomePage(),
       // home: SearchPage(),
-      home: CategoriesPage(),
+      // home: CategoriesPage(),
     );
   }
 }
