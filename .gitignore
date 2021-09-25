@@ -19,3 +19,8 @@ doc/api/
 *.js_
 *.js.deps
 *.js.map
+re_imagine/android/.project
+re_imagine/android/.settings/org.eclipse.buildship.core.prefs
+re_imagine/android/app/.project
+re_imagine/android/app/.classpath
+re_imagine/android/app/.settings/org.eclipse.buildship.core.prefs
