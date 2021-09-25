@@ -31,7 +31,7 @@ class HomeFeedPosts extends StatelessWidget {
         itemBuilder: (context, index) {
           return Card(
             shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             color: kBackgroundColor,
             child: Column(
               children: <Widget>[
@@ -41,9 +41,7 @@ class HomeFeedPosts extends StatelessWidget {
                     Center(
                       child: Container(
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10)
-                              
-                              ),
+                              borderRadius: BorderRadius.circular(10)),
                           child: Image.asset(
                               "assets/images/${posts[index].filename}")),
                     ),
