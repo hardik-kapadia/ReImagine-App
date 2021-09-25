@@ -18,6 +18,7 @@ class LoginPage extends StatelessWidget {
               image: AssetImage('assets/images/logo.png'),
             ),
             TextfieldContainer(
+              widthRatio: 0.8,
               child: TextField(
                 decoration: InputDecoration(
                     hintText: 'Email', hintStyle: TextStyle(color: kTextColor)),
@@ -27,11 +28,12 @@ class LoginPage extends StatelessWidget {
               height: 20.0,
             ),
             TextfieldContainer(
+                widthRatio: 0.8,
                 child: TextField(
-              decoration: InputDecoration(
-                  hintText: 'Password',
-                  hintStyle: TextStyle(color: kTextColor)),
-            )),
+                  decoration: InputDecoration(
+                      hintText: 'Password',
+                      hintStyle: TextStyle(color: kTextColor)),
+                )),
             SizedBox(
               height: 20.0,
             ),
