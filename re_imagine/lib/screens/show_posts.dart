@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:re_imagine/components/bottom_navigation_bar_components.dart';
-import 'package:re_imagine/components/home_feed_posts.dart';
+import 'package:re_imagine/components/feed_posts.dart';
 
 import '../constants.dart';
 
@@ -28,11 +28,11 @@ class ShowPosts extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            HomeFeedPosts(),
+            FeedPosts(),
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBarComponent(3),
+      bottomNavigationBar: BottomNavigationBarComponent(1),
     );
   }
 }

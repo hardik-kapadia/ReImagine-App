@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:re_imagine/screens/categories_page.dart';
 import 'package:re_imagine/screens/home_page.dart';
 import 'package:re_imagine/screens/search_page.dart';
 import '../constants.dart';
@@ -17,7 +18,7 @@ class _BottomNavigationBarComponentState
   int selectedIndex = 0;
   _BottomNavigationBarComponentState(this.selectedIndex);
 
-  List<Widget> routes = [HomePage(), SearchPage(), HomePage(), HomePage()];
+  List<Widget> routes = [HomePage(), SearchPage(), CategoriesPage(), HomePage()];
 
   @override
   void _onItemTapped(int index) {

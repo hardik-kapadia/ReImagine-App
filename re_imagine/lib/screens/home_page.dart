@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:re_imagine/components/home_feed_posts.dart';
+import 'package:re_imagine/components/feed_posts.dart';
 import '../constants.dart';
 import '../components/bottom_navigation_bar_components.dart';
 import '../components/categories_list_view.dart';
@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
             margin: EdgeInsets.only(top: 20),
           ),
           CategoryListView(),
-          HomeFeedPosts(),
+          FeedPosts(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBarComponent(0),

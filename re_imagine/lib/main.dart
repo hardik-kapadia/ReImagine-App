@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:re_imagine/screens/search_page.dart';
+import 'screens/search_page.dart';
+import 'screens/show_posts.dart';
 import 'screens/login_page.dart';
 import 'screens/home_page.dart';
 import 'screens/categories_page.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       // home: HomePage(),
       // home: SearchPage(),
       // home: CategoriesPage(),
+      home: ShowPosts(),
     );
   }
 }

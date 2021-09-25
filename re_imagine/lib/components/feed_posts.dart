@@ -3,8 +3,8 @@ import 'package:re_imagine/model/post.dart';
 import '../constants.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-class HomeFeedPosts extends StatelessWidget {
-  HomeFeedPosts({Key? key}) : super(key: key);
+class FeedPosts extends StatelessWidget {
+  FeedPosts({Key? key}) : super(key: key);
 
   final List<Post> posts = [
     Post(1),
