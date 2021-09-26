@@ -13,7 +13,7 @@ class CategoriesPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: SafeArea(
-        child: Column(
+        child: ListView(
           children: [
             SizedBox(
               height: height * 0.01,
@@ -27,28 +27,41 @@ class CategoriesPage extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: height * 0.02),
             Row(
               children: [
-                SinglePostContainer(),
-                SinglePostContainer(),
+                SinglePostContainer(
+                  image: AssetImage('assets/images/assassin.jpg'),
+                  text: 'text1',
+                ),
+                SinglePostContainer(
+                  image: AssetImage('assets/images/assassin.jpg'),
+                  text: 'text2',
+                ),
               ],
             ),
             Row(
               children: [
-                SinglePostContainer(),
-                SinglePostContainer(),
+                SinglePostContainer(
+                  image: AssetImage('assets/images/assassin.jpg'),
+                  text: 'text1',
+                ),
+                SinglePostContainer(
+                  image: AssetImage('assets/images/assassin1.jpg'),
+                  text: 'text2',
+                ),
               ],
             ),
             Row(
               children: [
-                SinglePostContainer(),
-                SinglePostContainer(),
-              ],
-            ),
-            Row(
-              children: [
-                SinglePostContainer(),
-                SinglePostContainer(),
+                SinglePostContainer(
+                  image: AssetImage('assets/images/assassin.jpg'),
+                  text: 'text1',
+                ),
+                SinglePostContainer(
+                  image: AssetImage('assets/images/assassin.jpg'),
+                  text: 'text2',
+                ),
               ],
             ),
           ],
@@ -60,7 +73,12 @@ class CategoriesPage extends StatelessWidget {
 }
 
 class SinglePostContainer extends StatelessWidget {
+  // NetworkImage image;
+  AssetImage image;
+  String text;
   SinglePostContainer({
+    required this.image,
+    required this.text,
     Key? key,
   }) : super(key: key);
 
@@ -68,24 +86,27 @@ class SinglePostContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    return Container(
-      width: width / 2.18,
-      height: height / 5.7,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        image: DecorationImage(
-          image: AssetImage("assets/images/assassin.jpg"),
-          fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+        width: width / 2.18,
+        height: height / 4,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          image: DecorationImage(
+            image: image,
+            fit: BoxFit.cover,
+          ),
+          borderRadius: BorderRadius.circular(10),
         ),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Center(
-        child: Text(
-          "Hello",
-          style: GoogleFonts.ubuntu(color: Colors.white),
+        child: Center(
+          child: Text(
+            text,
+            style: GoogleFonts.ubuntu(color: Colors.white),
+          ),
         ),
+        margin: EdgeInsets.all(8),
       ),
-      margin: EdgeInsets.all(8),
     );
   }
 }

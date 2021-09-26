@@ -16,9 +16,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Reimagine",
       // home: LoginPage(),
-      home: HomePage(),
+      // home: HomePage(),
       // home: SearchPage(),
-      // home: CategoriesPage(),
+      home: CategoriesPage(),
       // home: ShowPosts(),
     );
   }
