@@ -18,12 +18,19 @@ class _BottomNavigationBarComponentState
   int selectedIndex = 0;
   _BottomNavigationBarComponentState(this.selectedIndex);
 
-  List<Widget> routes = [HomePage(), SearchPage(), CategoriesPage(), HomePage()];
+  List<Widget> routes = [
+    HomePage(),
+    SearchPage(),
+    CategoriesPage(),
+    HomePage()
+  ];
 
   @override
   void _onItemTapped(int index) {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => routes[index]));
+    if (index != selectedIndex) {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => routes[index]));
+    }
   }
 
   @override
