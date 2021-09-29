@@ -23,6 +23,7 @@ class FeedPosts extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: StaggeredGridView.countBuilder(
+        shrinkWrap: true,
         primary: false,
         crossAxisCount: 4,
         mainAxisSpacing: 10,
