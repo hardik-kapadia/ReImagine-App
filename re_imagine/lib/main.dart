@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:re_imagine/screens/profile_page.dart';
 import 'package:re_imagine/screens/sub_category_page.dart';
 import 'screens/search_page.dart';
 import 'screens/show_posts.dart';
