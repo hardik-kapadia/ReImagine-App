@@ -39,7 +39,9 @@ class MyApp extends StatelessWidget {
 class DeviceSize {
   double height;
   double width;
+
   DeviceSize(this.height, this.width);
+
   static DeviceSize getDeviceSize(BuildContext context) {
     return DeviceSize(
         MediaQuery.of(context).size.height, MediaQuery.of(context).size.width);
