@@ -13,15 +13,15 @@ class ProfilePage extends StatelessWidget {
 
   final List<Post> posts = [
     Post(1),
-    Post(2, filename: "assassin.jpg"),
-    Post(3, filename: "assassin1.jpg"),
+    Post(2, url: "assassin.jpg"),
+    Post(3, url: "assassin1.jpg"),
     Post(4),
-    Post(5, filename: "assassin.jpg"),
+    Post(5, url: "assassin.jpg"),
     Post(6),
-    Post(7, filename: "assassin1.jpg"),
-    Post(8, filename: "assassin.jpg"),
+    Post(7, url: "assassin1.jpg"),
+    Post(8, url: "assassin.jpg"),
     Post(8),
-    Post(10, filename: "assassin.jpg")
+    Post(10, url: "assassin.jpg")
   ];
 
   ProfilePage(
@@ -71,6 +71,7 @@ class ProfilePage extends StatelessWidget {
                         Color(0x60000000),
                         Color(0x00000000),
                       ],
+
                     ),
                   ),
                 ),
@@ -106,10 +107,20 @@ class ProfilePage extends StatelessWidget {
                     padding: const EdgeInsets.all(6),
                     child: Column(
                       children: <Widget>[
+
                         Text(
                           '${posts[index].title}',
                           style: const TextStyle(color: kTextColor),
                           textAlign: TextAlign.center,
+
+                        //Center(child: CircularProgressIndicator()),
+                        Center(
+                          child: Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Image.asset(
+                                  "assets/images/${posts[index].url}")),
+
                         ),
                       ],
                     ),

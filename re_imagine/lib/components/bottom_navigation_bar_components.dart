@@ -29,7 +29,6 @@ class _BottomNavigationBarComponentState
         name: 'Dickap'),
   ];
 
-  @override
   void _onItemTapped(int index) {
     if (index != selectedIndex) {
       Navigator.push(

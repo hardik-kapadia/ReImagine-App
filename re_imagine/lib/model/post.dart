@@ -4,12 +4,12 @@ class Post {
   String subreddit;
   String title;
   int upvotes;
-  String filename;
+  String url;
 
   Post(this.id,
       {this.category = "Standard",
       this.subreddit = "ImaginarySomething",
       this.title = "Really Really Cool stuff, like super duper cool, trust me, it's really something",
       this.upvotes = 68,
-      this.filename = "placeholder.jpg"});
+      this.url = "placeholder.jpg"});
 }
