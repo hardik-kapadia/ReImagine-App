@@ -34,26 +34,11 @@ class _MyAppState extends State<MyApp> {
     HomePage(),
     SearchPage(),
     CategoriesPage(),
-    ProfilePage(
-        imageurl:
-            'https://avatars.githubusercontent.com/u/32408025?s=400&u=f341a3e147106d1fd56f6a32570e723f7854d0ba&v=4',
-        name: 'Dickap'),
+    ProfilePage(),
   ];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // child: MaterialApp(
-      //   debugShowCheckedModeBanner: false,
-      //   title: "Reimagine",
-      //   // home: LoginPage(),
-      //   home: HomePage(),
-      //   // home: PostPage(),
-      //   // home: SearchPage(),
-      //   // home: CategoriesPage(),
-      //   // home: SubCategoryPage(),
-      //   // home: ShowPosts(),
-
-      // ),
       home: Scaffold(
         backgroundColor: kBackgroundColor,
         body: screens[selectedIndex],

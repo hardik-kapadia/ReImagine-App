@@ -8,8 +8,8 @@ import 'package:re_imagine/model/post.dart';
 import '../constants.dart';
 
 class ProfilePage extends StatelessWidget {
-  final String name;
-  final String imageurl;
+  String name;
+  String imageurl;
 
   final List<Post> posts = [
     Post(1),
@@ -24,7 +24,11 @@ class ProfilePage extends StatelessWidget {
     Post(10, filename: "assassin.jpg")
   ];
 
-  ProfilePage({required this.name, required this.imageurl, Key? key})
+  ProfilePage(
+      {this.name = 'Dikap',
+      this.imageurl =
+          'https://avatars.githubusercontent.com/u/32408025?s=400&u=f341a3e147106d1fd56f6a32570e723f7854d0ba&v=4',
+      Key? key})
       : super(key: key);
 
   Widget build(BuildContext context) {
