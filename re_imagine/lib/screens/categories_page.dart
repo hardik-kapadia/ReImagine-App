@@ -10,64 +10,60 @@ class CategoriesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    return Scaffold(
-      backgroundColor: kBackgroundColor,
-      body: SafeArea(
-        child: ListView(
-          children: [
-            SizedBox(
-              height: height * 0.01,
-            ),
-            Center(
-              child: Text(
-                'Cartegories',
-                style: GoogleFonts.ubuntu(
-                  color: kHeadingColor,
-                  fontSize: 35,
-                ),
+    return SafeArea(
+      child: ListView(
+        children: [
+          SizedBox(
+            height: height * 0.01,
+          ),
+          Center(
+            child: Text(
+              'Cartegories',
+              style: GoogleFonts.ubuntu(
+                color: kHeadingColor,
+                fontSize: 35,
               ),
             ),
-            SizedBox(height: height * 0.02),
-            Row(
-              children: [
-                SinglePostContainer(
-                  image: AssetImage('assets/images/assassin.jpg'),
-                  text: 'text1',
-                ),
-                SinglePostContainer(
-                  image: AssetImage('assets/images/assassin.jpg'),
-                  text: 'text2',
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                SinglePostContainer(
-                  image: AssetImage('assets/images/assassin.jpg'),
-                  text: 'text1',
-                ),
-                SinglePostContainer(
-                  image: AssetImage('assets/images/assassin1.jpg'),
-                  text: 'text2',
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                SinglePostContainer(
-                  image: AssetImage('assets/images/assassin.jpg'),
-                  text: 'text1',
-                ),
-                SinglePostContainer(
-                  image: AssetImage('assets/images/assassin.jpg'),
-                  text: 'text2',
-                ),
-              ],
-            ),
-          ],
-        ),
+          ),
+          SizedBox(height: height * 0.02),
+          Row(
+            children: [
+              SinglePostContainer(
+                image: AssetImage('assets/images/assassin.jpg'),
+                text: 'text1',
+              ),
+              SinglePostContainer(
+                image: AssetImage('assets/images/assassin.jpg'),
+                text: 'text2',
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              SinglePostContainer(
+                image: AssetImage('assets/images/assassin.jpg'),
+                text: 'text1',
+              ),
+              SinglePostContainer(
+                image: AssetImage('assets/images/assassin1.jpg'),
+                text: 'text2',
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              SinglePostContainer(
+                image: AssetImage('assets/images/assassin.jpg'),
+                text: 'text1',
+              ),
+              SinglePostContainer(
+                image: AssetImage('assets/images/assassin.jpg'),
+                text: 'text2',
+              ),
+            ],
+          ),
+        ],
       ),
-      bottomNavigationBar: BottomNavigationBarComponent(2),
     );
   }
 }
