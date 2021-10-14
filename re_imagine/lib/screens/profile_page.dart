@@ -13,15 +13,15 @@ class ProfilePage extends StatelessWidget {
 
   final List<Post> posts = [
     Post(1),
-    Post(2, filename: "assassin.jpg"),
-    Post(3, filename: "assassin1.jpg"),
+    Post(2, url: "assassin.jpg"),
+    Post(3, url: "assassin1.jpg"),
     Post(4),
-    Post(5, filename: "assassin.jpg"),
+    Post(5, url: "assassin.jpg"),
     Post(6),
-    Post(7, filename: "assassin1.jpg"),
-    Post(8, filename: "assassin.jpg"),
+    Post(7, url: "assassin1.jpg"),
+    Post(8, url: "assassin.jpg"),
     Post(8),
-    Post(10, filename: "assassin.jpg")
+    Post(10, url: "assassin.jpg")
   ];
 
   ProfilePage({required this.name, required this.imageurl, Key? key})
@@ -93,7 +93,7 @@ class ProfilePage extends StatelessWidget {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10)),
                               child: Image.asset(
-                                  "assets/images/${posts[index].filename}")),
+                                  "assets/images/${posts[index].url}")),
                         ),
                       ],
                     ),
