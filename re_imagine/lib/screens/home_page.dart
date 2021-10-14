@@ -10,19 +10,15 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: kBackgroundColor,
-      body: Column(
-        children: [
-          Container(
-            child: Image.asset('assets/images/logo.png'),
-            margin: EdgeInsets.only(top: 20),
-          ),
-          CategoryListView(),
-          FeedPosts(),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBarComponent(0),
+    return Column(
+      children: [
+        Container(
+          child: Image.asset('assets/images/logo.png'),
+          margin: EdgeInsets.only(top: 20),
+        ),
+        CategoryListView(),
+        FeedPosts(),
+      ],
     );
   }
 }

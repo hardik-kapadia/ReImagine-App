@@ -15,41 +15,37 @@ class SearchPage extends StatelessWidget {
       List.filled(5, new SubredditCategory(1, "assassin"));
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: kBackgroundColor,
-      body: SafeArea(
-        child: ListView(
-          // crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Center(
-              child: TextfieldContainer(
-                widthRatio: 0.95,
-                child: TextField(
-                  decoration: InputDecoration(
-                      hintText: 'search',
-                      hintStyle: TextStyle(color: kTextColor)),
-                ),
+    return SafeArea(
+      child: ListView(
+        // crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Center(
+            child: TextfieldContainer(
+              widthRatio: 0.95,
+              child: TextField(
+                decoration: InputDecoration(
+                    hintText: 'search',
+                    hintStyle: TextStyle(color: kTextColor)),
               ),
             ),
-            SizedBox(
-              height: 15,
-            ),
-            SearchPageComponent(
-              title: 'Posts',
-              list: list1,
-            ),
-            SearchPageComponent(
-              title: 'Categories',
-              list: list2,
-            ),
-            SearchPageComponent(
-              title: 'Subreddits',
-              list: list3,
-            ),
-          ],
-        ),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          SearchPageComponent(
+            title: 'Posts',
+            list: list1,
+          ),
+          SearchPageComponent(
+            title: 'Categories',
+            list: list2,
+          ),
+          SearchPageComponent(
+            title: 'Subreddits',
+            list: list3,
+          ),
+        ],
       ),
-      bottomNavigationBar: BottomNavigationBarComponent(1),
     );
   }
 }
