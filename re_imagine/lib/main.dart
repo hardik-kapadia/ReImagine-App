@@ -7,6 +7,7 @@ import 'screens/login_page.dart';
 import 'screens/home_page.dart';
 import 'screens/categories_page.dart';
 import 'screens/sub_category_page.dart';
+import 'screens/post_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: "Reimagine",
         // home: LoginPage(),
-        home: HomePage(),
+        // home: HomePage(),
+        // home: PostPage(),
         // home: SearchPage(),
         // home: CategoriesPage(),
         // home: SubCategoryPage(),
