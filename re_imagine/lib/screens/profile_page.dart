@@ -71,7 +71,6 @@ class ProfilePage extends StatelessWidget {
                         Color(0x60000000),
                         Color(0x00000000),
                       ],
-
                     ),
                   ),
                 ),
@@ -99,7 +98,7 @@ class ProfilePage extends StatelessWidget {
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10)),
                             child: Image.asset(
-                                "assets/images/${posts[index].filename}")),
+                                "assets/images/${posts[index].url}")),
                       ),
                     ],
                   ),
@@ -107,21 +106,12 @@ class ProfilePage extends StatelessWidget {
                     padding: const EdgeInsets.all(6),
                     child: Column(
                       children: <Widget>[
-
                         Text(
                           '${posts[index].title}',
                           style: const TextStyle(color: kTextColor),
                           textAlign: TextAlign.center,
-
-                        //Center(child: CircularProgressIndicator()),
-                        Center(
-                          child: Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Image.asset(
-                                  "assets/images/${posts[index].url}")),
-
                         ),
+                        //Center(child: CircularProgressIndicator())
                       ],
                     ),
                   )
