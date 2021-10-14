@@ -35,6 +35,7 @@ class ProfilePage extends StatelessWidget {
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
+            automaticallyImplyLeading: false,
             pinned: true,
             stretch: true,
             onStretchTrigger: () {
