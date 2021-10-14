@@ -120,40 +120,4 @@ class ProfilePage extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBarComponent(3),
     );
   }
-
-  /* @override
-  Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      backgroundColor: kBackgroundColor,
-      body: Container(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height: height * 0.05),
-              CircleAvatar(
-                backgroundImage: NetworkImage(imageurl),
-                radius: width * 0.35,
-              ),
-              SizedBox(
-                height: height * 0.03,
-              ),
-              Center(
-                child: Text(
-                  name,
-                  style: GoogleFonts.ubuntu(fontSize: 25, color: Colors.white),
-                ),
-              ),
-              SizedBox(
-                height: height * 0.03,
-              ),
-              FeedPosts(),
-            ],
-          ),
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBarComponent(3),
-    );
-  } */
 }

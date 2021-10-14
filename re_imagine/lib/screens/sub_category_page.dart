@@ -18,22 +18,6 @@ class SubCategoryPage extends StatelessWidget {
         backgroundColor: kBackgroundColor,
         body: Column(
           children: [
-            // ListTile(
-            //     horizontalTitleGap: 0,
-
-            //     contentPadding: EdgeInsets.symmetric(horizontal: 0),
-            //     leading: IconButton(
-            //         onPressed: () {
-            //           Navigator.pop(context);
-            //         },
-            //         icon: Icon(Icons.arrow_back_ios_new_sharp)),
-            //     title: Center(
-            //       child: Text(
-            //         'Here',
-            //         style:
-            //             GoogleFonts.ubuntu(fontSize: 20, color: kHeadingColor),
-            //       ),
-            //     )),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
