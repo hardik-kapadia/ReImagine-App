@@ -37,6 +37,7 @@ class ProfilePage extends StatelessWidget {
           SliverAppBar(
             pinned: true,
             stretch: true,
+            automaticallyImplyLeading: false,
             onStretchTrigger: () {
               // Function callback for stretch
               return Future<void>.value();
