@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:re_imagine/model/post.dart';
+import 'package:re_imagine/screens/post_page.dart';
+import '../model/post.dart';
 import '../constants.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -7,16 +9,16 @@ class FeedPosts extends StatelessWidget {
   FeedPosts({Key? key}) : super(key: key);
 
   final List<Post> posts = [
-    Post(1),
-    Post(2, url: "assassin.jpg"),
-    Post(3, url: "assassin1.jpg"),
-    Post(4),
-    Post(5, url: "assassin.jpg"),
-    Post(6),
-    Post(7, url: "assassin1.jpg"),
-    Post(8, url: "assassin.jpg"),
-    Post(8),
-    Post(10, url: "assassin.jpg")
+    Post(id: 1),
+    Post(id: 2, url: "assassin.jpg"),
+    Post(id: 3, url: "assassin1.jpg"),
+    Post(id: 4),
+    Post(id: 5, url: "assassin.jpg"),
+    Post(id: 6),
+    Post(id: 7, url: "assassin1.jpg"),
+    Post(id: 8, url: "assassin.jpg"),
+    Post(id: 8),
+    Post(id: 10, url: "assassin.jpg")
   ];
 
   @override
@@ -30,37 +32,47 @@ class FeedPosts extends StatelessWidget {
         crossAxisSpacing: 10,
         itemCount: posts.length,
         itemBuilder: (context, index) {
-          return Card(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            color: kBackgroundColor,
-            child: Column(
-              children: <Widget>[
-                Stack(
-                  children: <Widget>[
-                    //Center(child: CircularProgressIndicator()),
-                    Center(
-                      child: Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Image.asset(
-                              "assets/images/${posts[index].url}")),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(6),
-                  child: Column(
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => PostPage(
+                            post: posts[index],
+                          )));
+            },
+            child: Card(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              color: kBackgroundColor,
+              child: Column(
+                children: <Widget>[
+                  Stack(
                     children: <Widget>[
-                      Text(
-                        '${posts[index].title}',
-                        style: const TextStyle(color: kTextColor),
-                        textAlign: TextAlign.center,
+                      //Center(child: CircularProgressIndicator()),
+                      Center(
+                        child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Image.asset(
+                                "assets/images/${posts[index].url}")),
                       ),
                     ],
                   ),
-                )
-              ],
+                  Padding(
+                    padding: const EdgeInsets.all(6),
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                          '${posts[index].title}',
+                          style: const TextStyle(color: kTextColor),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           );
         },

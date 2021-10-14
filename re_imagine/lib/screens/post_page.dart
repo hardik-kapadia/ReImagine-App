@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:re_imagine/constants.dart';
-
+import '../model/post.dart';
 import '../main.dart';
 
 class PostPage extends StatelessWidget {
   void goBack() {}
-
+  Post post;
+  PostPage({this.post = const Post(id: 1)});
   @override
   Widget build(BuildContext context) {
     DeviceSize size = DeviceSize.getDeviceSize(context);
@@ -14,7 +15,7 @@ class PostPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: kBackgroundColor,
-        body: Column(
+        body: ListView(
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -44,7 +45,7 @@ class PostPage extends StatelessWidget {
             Container(
               margin: EdgeInsets.symmetric(
                   horizontal: size.width * 0.06, vertical: size.height * 0.015),
-              child: Image.asset('assets/images/city-post.jpg'),
+              child: Image.asset('assets/images/${post.url}'),
             ),
             Container(
               margin: EdgeInsets.symmetric(
