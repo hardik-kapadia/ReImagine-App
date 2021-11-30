@@ -26,7 +26,7 @@ class _BottomNavigationBarComponentState
     ProfilePage(
         imageurl:
             'https://avatars.githubusercontent.com/u/32408025?s=400&u=f341a3e147106d1fd56f6a32570e723f7854d0ba&v=4',
-        name: 'Dickap'),
+        name: 'Hardik'),
   ];
 
   void _onItemTapped(int index) {

@@ -25,7 +25,7 @@ class ProfilePage extends StatelessWidget {
   ];
 
   ProfilePage(
-      {this.name = 'Dikap',
+      {this.name = 'Hardik',
       this.imageurl =
           'https://avatars.githubusercontent.com/u/32408025?s=400&u=f341a3e147106d1fd56f6a32570e723f7854d0ba&v=4',
       Key? key})
