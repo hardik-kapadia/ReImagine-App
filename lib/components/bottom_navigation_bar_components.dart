@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:re_imagine/screens/categories_page.dart';
+import 'package:re_imagine/screens/home_loading_screen.dart';
 import 'package:re_imagine/screens/home_page.dart';
 import 'package:re_imagine/screens/profile_page.dart';
 import 'package:re_imagine/screens/search_page.dart';
@@ -20,7 +21,7 @@ class _BottomNavigationBarComponentState
   _BottomNavigationBarComponentState(this.selectedIndex);
 
   List<Widget> routes = [
-    HomePage(),
+    HomeLoadingScreen(),
     SearchPage(),
     CategoriesPage(),
     ProfilePage(

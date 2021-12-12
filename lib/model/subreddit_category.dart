@@ -6,4 +6,9 @@ class SubredditCategory {
   SubredditCategory(this.id, this.name);
 
   String get() => name;
+
+  @override
+  String toString() {
+    return '$id -> $name';
+  }
 }

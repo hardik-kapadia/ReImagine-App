@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:re_imagine/components/bottom_navigation_bar_components.dart';
 import 'package:re_imagine/components/feed_posts.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:re_imagine/model/post.dart';
 import '../constants.dart';
 
 class ShowPosts extends StatelessWidget {
@@ -40,7 +41,9 @@ class ShowPosts extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            FeedPosts(),
+            FeedPosts(
+              posts: [Post(id: "1"), Post(id: "2", url: "assassin.jpg")],
+            ),
           ],
         ),
       ),
@@ -48,3 +51,5 @@ class ShowPosts extends StatelessWidget {
     );
   }
 }
+
+// assets\images\CategoryBanner\battle.jpg

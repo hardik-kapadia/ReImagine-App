@@ -1,12 +1,13 @@
 import 'dart:async';
 import 'package:draw/draw.dart';
-import 'config.dart';
 import '../model/post.dart';
 
 class RedditHelper {
   late Reddit reddit;
 
-  RedditHelper();
+  RedditHelper() {
+    init();
+  }
 
   Future<void> init() async {
     this.reddit = await Reddit.createReadOnlyInstance(
@@ -16,7 +17,7 @@ class RedditHelper {
     );
   }
 
-  var all_subreddits = {
+  var allSubreddits = {
     'characters': {
       'ImaginaryArchers',
       'ImaginaryAssassins',
@@ -146,10 +147,39 @@ class RedditHelper {
     }
   };
 
-  Future getNewPosts(String name, int limit) async {
+  Future<List<Post>> getNewPostsFromCategory(String category, int limit) async {
+    Set<String>? subs = allSubreddits[category];
+
+
+    if (subs == null) throw NullThrownError();
+
+    
+    int n = (limit/ subs.length).round();
+    n = n == 0?1:n;
+
+
+    print('Category: $category');
+
+    List<Post> allPosts = [];
+
+    for (var sub in subs) {
+      List<Post> temp = await getNewPosts(sub, n);
+      print('${temp.length} posts pulled from $sub');
+      allPosts.addAll(temp);
+    }
+
+    return allPosts;
+  }
+
+  Future<List<Post>> getNewPosts(String name, int limit) async {
+
+    print('pulling from: $name');
+
     Subreddit sub = await reddit.subreddit(name).populate();
 
     Stream<UserContent> post = sub.newest(limit: limit);
+
+
 
     int i = 0;
 
@@ -162,7 +192,7 @@ class RedditHelper {
     }
 
     i = 0;
-    List someName = [];
+    List<Post> someName = [];
     for (var submission in submissions) {
       String title = submission.title;
       String author = submission.author;
@@ -172,6 +202,7 @@ class RedditHelper {
       String id = submission.id as String;
       bool nsfw = submission.over18;
       String url = submission.shortlink.toString();
+
       Post post = Post(
         id: id,
         title: title,

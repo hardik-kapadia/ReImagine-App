@@ -12,6 +12,8 @@ class CategoryListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("List is: $list");
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -20,7 +22,10 @@ class CategoryListView extends StatelessWidget {
             margin: EdgeInsets.only(left: 30),
             child: Text(
               "Categories",
-              style: GoogleFonts.ubuntu(color: Colors.white, fontSize: 25),
+              style: GoogleFonts.ubuntu(
+                  color: Colors.white,
+                  fontSize: 25,
+                  decoration: TextDecoration.none),
             )),
         Container(
             margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -36,16 +41,19 @@ class CategoryListView extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       image: DecorationImage(
-                        image:
-                            AssetImage("assets/images/${list[index].name}.jpg"),
+                        image: AssetImage(
+                            "assets/images/CategoryBanner/${list[index].name}.jpg"),
                         fit: BoxFit.cover,
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Center(
                       child: Text(
-                        "Hello ${list[index].name}",
-                        style: GoogleFonts.ubuntu(color: Colors.white),
+                        "${list[index].name}",
+                        style: GoogleFonts.ubuntu(
+                            color: Colors.white,
+                            textStyle: TextStyle(
+                                fontSize: 20, decoration: TextDecoration.none)),
                       ),
                     ),
                     margin: EdgeInsets.all(8),

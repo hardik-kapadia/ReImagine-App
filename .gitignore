@@ -68,6 +68,7 @@ doc/api/
 *.js_
 *.js.deps
 *.js.map
+
 android/.project
 android/.settings/org.eclipse.buildship.core.prefs
 android/app/.project

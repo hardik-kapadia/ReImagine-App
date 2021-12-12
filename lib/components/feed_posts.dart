@@ -6,8 +6,11 @@ import '../constants.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class FeedPosts extends StatelessWidget {
-  FeedPosts({Key? key}) : super(key: key);
+  final List<Post> posts;
 
+  FeedPosts({Key? key, required this.posts}) : super(key: key);
+
+/*
   final List<Post> posts = [
     Post(id: "1"),
     Post(id: "2", url: "assassin.jpg"),
@@ -20,6 +23,7 @@ class FeedPosts extends StatelessWidget {
     Post(id: "8"),
     Post(id: "10", url: "assassin.jpg")
   ];
+  */
 
   @override
   Widget build(BuildContext context) {
@@ -54,8 +58,7 @@ class FeedPosts extends StatelessWidget {
                         child: Container(
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10)),
-                            child: Image.asset(
-                                "assets/images/${posts[index].url}")),
+                            child: Image.network(posts[index].imageUrl)),
                       ),
                     ],
                   ),

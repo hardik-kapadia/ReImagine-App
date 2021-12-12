@@ -21,4 +21,9 @@ class Post {
         "https://preview.redd.it/o29ixwordi481.jpg?width=1920&format=pjpg&auto=webp&s=b804fa96849b373ccfa53b094edf20b86f0ce66f",
     this.nsfw = false,
   });
+
+  @override
+  String toString() {
+    return this.title + " -> " + this.imageUrl;
+  }
 }

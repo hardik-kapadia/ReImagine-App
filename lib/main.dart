@@ -1,5 +1,8 @@
+import 'package:draw/draw.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
+import 'package:re_imagine/backend/ine_helper.dart';
+import 'package:re_imagine/screens/home_loading_screen.dart';
 import 'package:re_imagine/screens/profile_page.dart';
 import 'package:re_imagine/screens/sub_category_page.dart';
 import 'screens/search_page.dart';
@@ -14,9 +17,14 @@ import 'constants.dart';
 import 'components/bottom_navigation_bar_components.dart';
 import 'package:line_icons/line_icons.dart';
 
-void main() {
+
+late final RedditHelper redditHelper;
+void main() async {
+  redditHelper = new RedditHelper();
+  await redditHelper.init();
   runApp(MyApp());
 }
+
 
 class MyApp extends StatefulWidget {
   static DeviceSize getDeviceSize(BuildContext context) {
@@ -29,16 +37,23 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
   int selectedIndex = 0;
+
   final screens = [
-    HomePage(),
+    HomeLoadingScreen(),
     SearchPage(),
     CategoriesPage(),
     ProfilePage(),
+    LoginPage()
   ];
+
+  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: kBackgroundColor,
         body: screens[selectedIndex],
