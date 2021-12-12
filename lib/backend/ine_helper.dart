@@ -180,7 +180,6 @@ class RedditHelper {
     Stream<UserContent> post = sub.newest(limit: limit);
 
 
-
     int i = 0;
 
     List<Submission> submissions = [];
