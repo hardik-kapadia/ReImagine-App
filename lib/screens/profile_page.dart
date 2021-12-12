@@ -1,15 +1,13 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:re_imagine/components/bottom_navigation_bar_components.dart';
-import 'package:re_imagine/components/feed_posts.dart';
 import 'package:re_imagine/model/post.dart';
+
 import '../constants.dart';
 
 class ProfilePage extends StatelessWidget {
-  String name;
-  String imageurl;
+  
+  final String name;
+  final String imageurl;
 
   final List<Post> posts = [
     Post(id: "1"),
@@ -32,8 +30,10 @@ class ProfilePage extends StatelessWidget {
       : super(key: key);
 
   Widget build(BuildContext context) {
+
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+    
     return CustomScrollView(
       slivers: <Widget>[
         SliverAppBar(

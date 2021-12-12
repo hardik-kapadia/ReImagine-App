@@ -4,10 +4,13 @@ import 'package:re_imagine/constants.dart';
 import '../model/post.dart';
 import '../main.dart';
 import 'package:image_downloader/image_downloader.dart';
+import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PostPage extends StatelessWidget {
+
   void goBack() {}
-  Post post;
+  final Post post;
   PostPage({required this.post});
   @override
   Widget build(BuildContext context) {
@@ -123,7 +126,7 @@ class PostPage extends StatelessWidget {
                         if (x != null) {
                           var path = await ImageDownloader.findPath(x);
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            content: Text("image downloaded to ${path}"),
+                            content: Text("image downloaded to $path"),
                           ));
                         }
                         print('click on download');
@@ -137,10 +140,20 @@ class PostPage extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Icon(
-                      Icons.info,
-                      size: 50,
-                      color: Colors.deepOrange.shade700,
+                    child: GestureDetector(
+                      onTap: () async {
+                        String url = this.post.url;
+                        if (await canLaunch(url)) {
+                          await launch(url);
+                        } else {
+                          throw 'Could not launch $url';
+                        }
+                      },
+                      child: Icon(
+                        Icons.info,
+                        size: 50,
+                        color: Colors.deepOrange.shade700,
+                      ),
                     ),
                   ),
                   Padding(
@@ -152,13 +165,17 @@ class PostPage extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Icon(
-                      Icons.share,
-                      size: 50,
-                      color: Colors.deepOrange.shade700,
-                    ),
-                  ),
+                      padding: const EdgeInsets.all(8.0),
+                      child: GestureDetector(
+                        onTap: () async {
+                          Clipboard.setData(ClipboardData(text: "your text"));
+                        },
+                        child: Icon(
+                          Icons.share,
+                          size: 50,
+                          color: Colors.deepOrange.shade700,
+                        ),
+                      )),
                 ],
               ),
             )

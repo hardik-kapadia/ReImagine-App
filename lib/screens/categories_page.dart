@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:re_imagine/components/bottom_navigation_bar_components.dart';
 import 'package:re_imagine/screens/sub_category_page.dart';
+
 import '../constants.dart';
 
 class CategoriesPage extends StatelessWidget {
@@ -9,8 +9,10 @@ class CategoriesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    
     return SafeArea(
       child: ListView(
         children: [
@@ -77,9 +79,10 @@ class CategoriesPage extends StatelessWidget {
 
 class SinglePostContainer extends StatelessWidget {
   // NetworkImage image;
-  AssetImage image;
-  String text;
-  String category;
+  final AssetImage image;
+  final String text;
+  final String category;
+
   SinglePostContainer({
     required this.category,
     required this.image,

@@ -9,20 +9,11 @@ import '../main.dart';
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatelessWidget {
-  // final List<Post> posts;
-
   HomePage({Key? key}) : super(key: key);
-
-  // void displayLoadingScreen(BuildContext context) async {
-  //   final result = await Navigator.push(
-  //     context,
-  //     MaterialPageRoute(builder: (context) => HomeLoadingScreen()),
-  //   );
-  // }
 
   @override
   Widget build(BuildContext context) {
-    print("IN home page");
+    print("In home page");
 
     return FutureBuilder<List<Post>>(
         future: redditHelper.getNewPostsFromCategory("lands", 20),
@@ -40,9 +31,10 @@ class HomePage extends StatelessWidget {
             );
           } else {
             return Scaffold(
+              backgroundColor: kBackgroundColor,
               body: Center(
                 child: SpinKitDoubleBounce(
-                  color: Colors.red,
+                  color: kHeadingColor,
                   size: 100.0,
                 ),
               ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../components/bottom_navigation_bar_components.dart';
 import 'package:re_imagine/constants.dart';
 import '../components/textfield_container.dart';
 import '../components/search_page_component.dart';

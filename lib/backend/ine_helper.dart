@@ -156,17 +156,14 @@ class RedditHelper {
 
     Stream<UserContent> post = sub.newest(limit: limit);
 
-    int i = 0;
 
     List<Submission> submissions = [];
 
     await for (var uc in post) {
       // print("$i -> ${uc.toString()}");
       submissions.add(await (uc as SubmissionRef).populate());
-      i++;
     }
 
-    i = 0;
     List<Post> someName = [];
     for (var submission in submissions) {
       String title = submission.title;
@@ -189,7 +186,6 @@ class RedditHelper {
         url: url,
       );
       someName.add(post);
-      i++;
     }
     return someName;
   }

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:re_imagine/backend/ine_helper.dart';
-import 'package:re_imagine/components/bottom_navigation_bar_components.dart';
 import 'package:re_imagine/main.dart';
 import 'package:re_imagine/screens/show_posts.dart';
+
 import '../constants.dart';
 import '../main.dart';
 

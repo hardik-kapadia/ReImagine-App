@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:re_imagine/components/bottom_navigation_bar_components.dart';
 import 'package:re_imagine/components/feed_posts.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:re_imagine/model/post.dart';
@@ -9,13 +8,16 @@ import '../constants.dart';
 import '../main.dart';
 
 class ShowPosts extends StatelessWidget {
-  String sub;
+
+  final String sub;
   ShowPosts({Key? key, required this.sub}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+
     return FutureBuilder<List<Post>>(
         future: redditHelper.getNewPosts(sub, 20),
         builder: (context, AsyncSnapshot<List<Post>> snapshot) {
