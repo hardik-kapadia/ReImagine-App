@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:re_imagine/constants.dart';
 import '../model/post.dart';
 import '../main.dart';
+import 'package:image_downloader/image_downloader.dart';
 
 class PostPage extends StatelessWidget {
   void goBack() {}
@@ -115,10 +116,23 @@ class PostPage extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Icon(
-                      Icons.download,
-                      size: 50,
-                      color: Colors.deepOrange.shade700,
+                    child: GestureDetector(
+                      onTap: () async {
+                        var x =
+                            await ImageDownloader.downloadImage(post.imageUrl);
+                        if (x != null) {
+                          var path = await ImageDownloader.findPath(x);
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text("image downloaded to ${path}"),
+                          ));
+                        }
+                        print('click on download');
+                      },
+                      child: Icon(
+                        Icons.download,
+                        size: 50,
+                        color: Colors.deepOrange.shade700,
+                      ),
                     ),
                   ),
                   Padding(
