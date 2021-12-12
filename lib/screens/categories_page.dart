@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:re_imagine/components/bottom_navigation_bar_components.dart';
+import 'package:re_imagine/screens/sub_category_page.dart';
 import '../constants.dart';
 
 class CategoriesPage extends StatelessWidget {
@@ -29,36 +30,42 @@ class CategoriesPage extends StatelessWidget {
           Row(
             children: [
               SinglePostContainer(
-                image: AssetImage('assets/images/assassin.jpg'),
-                text: 'text1',
+                image: AssetImage('assets/images/CategoryBanner/battle.jpg'),
+                text: 'Characters',
+                category: 'characters',
               ),
               SinglePostContainer(
-                image: AssetImage('assets/images/assassin.jpg'),
-                text: 'text2',
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              SinglePostContainer(
-                image: AssetImage('assets/images/assassin.jpg'),
-                text: 'text1',
-              ),
-              SinglePostContainer(
-                image: AssetImage('assets/images/assassin1.jpg'),
-                text: 'text2',
+                image: AssetImage('assets/images/CategoryBanner/battle.jpg'),
+                text: 'Races',
+                category: 'races',
               ),
             ],
           ),
           Row(
             children: [
               SinglePostContainer(
-                image: AssetImage('assets/images/assassin.jpg'),
-                text: 'text1',
+                image: AssetImage('assets/images/CategoryBanner/battle.jpg'),
+                text: 'Lands',
+                category: 'lands',
               ),
               SinglePostContainer(
-                image: AssetImage('assets/images/assassin.jpg'),
-                text: 'text2',
+                image: AssetImage('assets/images/CategoryBanner/battle.jpg'),
+                text: 'Architecture',
+                category: 'architecture',
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              SinglePostContainer(
+                image: AssetImage('assets/images/CategoryBanner/battle.jpg'),
+                text: 'Monster',
+                category: 'monster',
+              ),
+              SinglePostContainer(
+                image: AssetImage('assets/images/CategoryBanner/battle.jpg'),
+                text: 'Technology',
+                category: 'technology',
               ),
             ],
           ),
@@ -72,7 +79,9 @@ class SinglePostContainer extends StatelessWidget {
   // NetworkImage image;
   AssetImage image;
   String text;
+  String category;
   SinglePostContainer({
+    required this.category,
     required this.image,
     required this.text,
     Key? key,
@@ -83,7 +92,15 @@ class SinglePostContainer extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => SubCategoryPage(
+                    category: category,
+                  )),
+        );
+      },
       child: Container(
         width: width / 2.18,
         height: height / 4,

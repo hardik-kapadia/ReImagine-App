@@ -121,42 +121,20 @@ class RedditHelper {
       'ImaginaryTurtleWorlds',
       'ImaginaryWTF',
     },
-    'friends': {
-      'AdorableDragons',
-      'AlternativeArt',
-      'ApocalypsePorn',
-      'ArmoredWomen',
-      'ArtPorn',
-      'BadAssDragons',
-      'ImpracticalArmour',
-      'INEGentlemanBoners',
-      'Isometric',
-      'Moescape',
-      'mtgporn',
-      'PopArtNouveau',
-      'Pulp',
-      'Raining',
-      'ReasonableFantasy',
-      'SpecArt',
-      'StarshipPorn',
-      'SuperStructures',
-      'SympatheticMonsters',
-      'UnusualArt',
-      'Wallpapers',
-      'ZodiacArt',
-    }
   };
+
+  List<String> getSubreddits(String category) {
+    List<String>? subs = allSubreddits[category]?.toList();
+    return subs as List<String>;
+  }
 
   Future<List<Post>> getNewPostsFromCategory(String category, int limit) async {
     Set<String>? subs = allSubreddits[category];
 
-
     if (subs == null) throw NullThrownError();
 
-    
-    int n = (limit/ subs.length).round();
-    n = n == 0?1:n;
-
+    int n = (limit / subs.length).round();
+    n = n == 0 ? 1 : n;
 
     print('Category: $category');
 
@@ -172,13 +150,11 @@ class RedditHelper {
   }
 
   Future<List<Post>> getNewPosts(String name, int limit) async {
-
     print('pulling from: $name');
 
     Subreddit sub = await reddit.subreddit(name).populate();
 
     Stream<UserContent> post = sub.newest(limit: limit);
-
 
     int i = 0;
 

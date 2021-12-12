@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:re_imagine/backend/ine_helper.dart';
 import 'package:re_imagine/components/bottom_navigation_bar_components.dart';
 import 'package:re_imagine/main.dart';
+import 'package:re_imagine/screens/show_posts.dart';
 import '../constants.dart';
 import '../main.dart';
 
 class SubCategoryPage extends StatelessWidget {
-  SubCategoryPage({Key? key}) : super(key: key);
+  String category;
+  // RedditHelper helper = RedditHelper();
+
+  SubCategoryPage({Key? key, required this.category}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    List<String> subs = redditHelper.getSubreddits(category);
     // double width = MediaQuery.of(context).size.width;
     // double height = MediaQuery.of(context).size.height;
     DeviceSize size = DeviceSize.getDeviceSize(context);
@@ -21,10 +27,15 @@ class SubCategoryPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  Icons.arrow_back_ios_new_sharp,
-                  size: 30,
-                  color: Colors.white,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Icon(
+                    Icons.arrow_back_ios_new_sharp,
+                    size: 30,
+                    color: Colors.white,
+                  ),
                 ),
                 Container(
                   margin: EdgeInsets.symmetric(
@@ -47,20 +58,31 @@ class SubCategoryPage extends StatelessWidget {
               child: ListView.builder(
                   shrinkWrap: true,
                   padding: const EdgeInsets.all(8),
-                  itemCount: 5,
+                  itemCount: subs.length,
                   // children:
                   itemBuilder: (BuildContext context, int index) {
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          padding: EdgeInsets.all(14),
-                          // margin: EdgeInsets.all(10),
-                          child: Text(
-                            'data',
-                            style: GoogleFonts.ubuntu(
-                              fontSize: 20,
-                              color: kHeadingColor,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ShowPosts(
+                                        sub: subs[index],
+                                      )),
+                            );
+                          },
+                          child: Container(
+                            padding: EdgeInsets.all(14),
+                            // margin: EdgeInsets.all(10),
+                            child: Text(
+                              subs[index],
+                              style: GoogleFonts.ubuntu(
+                                fontSize: 20,
+                                color: kHeadingColor,
+                              ),
                             ),
                           ),
                         ),
