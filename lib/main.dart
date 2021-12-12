@@ -2,7 +2,6 @@ import 'package:draw/draw.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:re_imagine/backend/ine_helper.dart';
-// import 'package:re_imagine/screens/home_loading_screen.dart';
 import 'package:re_imagine/screens/profile_page.dart';
 import 'package:re_imagine/screens/sub_category_page.dart';
 import 'model/post.dart';
