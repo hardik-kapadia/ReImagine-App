@@ -156,7 +156,6 @@ class RedditHelper {
 
     Stream<UserContent> post = sub.newest(limit: limit);
 
-
     List<Submission> submissions = [];
 
     await for (var uc in post) {
@@ -185,7 +184,9 @@ class RedditHelper {
         nsfw: nsfw,
         url: url,
       );
-      someName.add(post);
+      if (Uri.parse(imageUrl).isAbsolute && !nsfw) {
+        someName.add(post);
+      }
     }
     return someName;
   }

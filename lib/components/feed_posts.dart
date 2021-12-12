@@ -56,9 +56,10 @@ class FeedPosts extends StatelessWidget {
                       //Center(child: CircularProgressIndicator()),
                       Center(
                         child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Image.network(posts[index].imageUrl)),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Image.network(posts[index].imageUrl),
+                        ),
                       ),
                     ],
                   ),
