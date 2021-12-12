@@ -9,10 +9,9 @@ class CategoriesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    
+
     return SafeArea(
       child: ListView(
         children: [
@@ -61,8 +60,8 @@ class CategoriesPage extends StatelessWidget {
             children: [
               SinglePostContainer(
                 image: AssetImage('assets/images/CategoryBanner/battle.jpg'),
-                text: 'Monster',
-                category: 'monster',
+                text: 'Monsters',
+                category: 'monsters',
               ),
               SinglePostContainer(
                 image: AssetImage('assets/images/CategoryBanner/battle.jpg'),

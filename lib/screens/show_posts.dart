@@ -8,13 +8,11 @@ import '../constants.dart';
 import '../main.dart';
 
 class ShowPosts extends StatelessWidget {
-
   final String sub;
   ShowPosts({Key? key, required this.sub}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
@@ -22,41 +20,58 @@ class ShowPosts extends StatelessWidget {
         future: redditHelper.getNewPosts(sub, 20),
         builder: (context, AsyncSnapshot<List<Post>> snapshot) {
           if (snapshot.hasData) {
-            return SafeArea(
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Icon(
-                          Icons.arrow_back_ios_new_sharp,
-                          size: 30,
-                          color: Colors.white,
+            List<Post> posts = snapshot.data as List<Post>;
+            if (posts.length > 0) {
+              return SafeArea(
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Icon(
+                            Icons.arrow_back_ios_new_sharp,
+                            size: 30,
+                            color: Colors.white,
+                          ),
                         ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.symmetric(
-                          // horizontal: width * 0.35,
-                          vertical: height * 0.03,
+                        Container(
+                          margin: EdgeInsets.symmetric(
+                            // horizontal: width * 0.35,
+                            vertical: height * 0.03,
+                          ),
+                          child: Text(
+                            sub,
+                            style: GoogleFonts.ubuntu(
+                                fontSize: 30,
+                                color: kHeadingColor,
+                                decoration: TextDecoration.none),
+                          ),
                         ),
-                        child: Text(
-                          sub,
-                          style: GoogleFonts.ubuntu(
-                              fontSize: 30,
-                              color: kHeadingColor,
-                              decoration: TextDecoration.none),
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
+                    FeedPosts(posts: snapshot.data as List<Post>),
+                  ],
+                ),
+              );
+            } else {
+              return SafeArea(
+                  child: Container(
+                color: kBackgroundColor,
+                child: Center(
+                  child: Text(
+                    "Oops, nothing to see here",
+                    style: TextStyle(
+                        decoration: TextDecoration.none,
+                        fontSize: 20,
+                        color: kTextColor),
                   ),
-                  FeedPosts(posts: snapshot.data as List<Post>),
-                ],
-              ),
-            );
+                ),
+              ));
+            }
           } else {
             return Scaffold(
               body: Center(
@@ -68,6 +83,7 @@ class ShowPosts extends StatelessWidget {
             );
           }
         });
+
     // return Scaffold(
     //   backgroundColor: kBackgroundColor,
     //   body: SafeArea(

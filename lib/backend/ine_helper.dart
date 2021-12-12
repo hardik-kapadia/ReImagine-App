@@ -184,10 +184,16 @@ class RedditHelper {
         nsfw: nsfw,
         url: url,
       );
-      if (Uri.parse(imageUrl).isAbsolute && !nsfw) {
+      if (check(imageUrl) && !nsfw) {
         someName.add(post);
+      } else {
+        print("something is filtered");
       }
     }
     return someName;
+  }
+
+  bool check(String ur) {
+    return ur.contains(".jpeg") || ur.contains(".jpg") || ur.contains(".png");
   }
 }
