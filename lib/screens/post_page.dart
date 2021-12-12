@@ -7,7 +7,7 @@ import '../main.dart';
 class PostPage extends StatelessWidget {
   void goBack() {}
   Post post;
-  PostPage({this.post = const Post(id: 1)});
+  PostPage({this.post = const Post(id: "1")});
   @override
   Widget build(BuildContext context) {
     DeviceSize size = DeviceSize.getDeviceSize(context);

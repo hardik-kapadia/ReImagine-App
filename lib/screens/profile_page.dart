@@ -12,16 +12,16 @@ class ProfilePage extends StatelessWidget {
   String imageurl;
 
   final List<Post> posts = [
-    Post(id: 1),
-    Post(id: 2, url: "assassin.jpg"),
-    Post(id: 3, url: "assassin1.jpg"),
-    Post(id: 4),
-    Post(id: 5, url: "assassin.jpg"),
-    Post(id: 6),
-    Post(id: 7, url: "assassin1.jpg"),
-    Post(id: 8, url: "assassin.jpg"),
-    Post(id: 8),
-    Post(id: 10, url: "assassin.jpg")
+    Post(id: "1"),
+    Post(id: "2", url: "assassin.jpg"),
+    Post(id: "3", url: "assassin1.jpg"),
+    Post(id: "4"),
+    Post(id: "5", url: "assassin.jpg"),
+    Post(id: "6"),
+    Post(id: "7", url: "assassin1.jpg"),
+    Post(id: "8", url: "assassin.jpg"),
+    Post(id: "8"),
+    Post(id: "10", url: "assassin.jpg")
   ];
 
   ProfilePage(

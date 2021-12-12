@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:draw/draw.dart';
 import 'config.dart';
+import '../model/post.dart';
 
 class RedditHelper {
   late Reddit reddit;
@@ -163,11 +164,25 @@ class RedditHelper {
     i = 0;
     List someName = [];
     for (var submission in submissions) {
-      var title = submission.title;
-      var author = submission.author;
-      var url = submission.url;
-      var upvotes = submission.upvotes;
-      // print("$i. ${submission.title}, ${submission.id} -> ${submission.url}");
+      String title = submission.title;
+      String author = submission.author;
+      String imageUrl = submission.url.toString();
+      int upvotes = submission.upvotes;
+      String subreddit = submission.subreddit.displayName;
+      String id = submission.id as String;
+      bool nsfw = submission.over18;
+      String url = submission.shortlink.toString();
+      Post post = Post(
+        id: id,
+        title: title,
+        subreddit: subreddit,
+        imageUrl: imageUrl,
+        upvotes: upvotes,
+        user: author,
+        nsfw: nsfw,
+        url: url,
+      );
+      someName.add(post);
       i++;
     }
     return someName;
