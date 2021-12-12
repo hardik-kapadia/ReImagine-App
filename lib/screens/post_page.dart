@@ -7,7 +7,7 @@ import '../main.dart';
 class PostPage extends StatelessWidget {
   void goBack() {}
   Post post;
-  PostPage({this.post = const Post(id: "1")});
+  PostPage({required this.post});
   @override
   Widget build(BuildContext context) {
     DeviceSize size = DeviceSize.getDeviceSize(context);
@@ -18,7 +18,7 @@ class PostPage extends StatelessWidget {
         body: ListView(
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 IconButton(
                   icon: Icon(
@@ -32,10 +32,10 @@ class PostPage extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.symmetric(
-                      horizontal: size.width * 0.35,
+                      // horizontal: size.width * 0.35,
                       vertical: size.height * 0.03),
                   child: Text(
-                    'Here',
+                    post.subreddit,
                     style:
                         GoogleFonts.ubuntu(fontSize: 30, color: kHeadingColor),
                   ),
@@ -45,7 +45,7 @@ class PostPage extends StatelessWidget {
             Container(
               margin: EdgeInsets.symmetric(
                   horizontal: size.width * 0.06, vertical: size.height * 0.015),
-              child: Image.asset('assets/images/${post.url}'),
+              child: Image.network(post.imageUrl),
             ),
             Container(
               margin: EdgeInsets.symmetric(
@@ -62,7 +62,7 @@ class PostPage extends StatelessWidget {
                           size: 30,
                           color: Colors.white,
                         ),
-                        Text("1.5",
+                        Text(post.upvotes.toString(),
                             style: GoogleFonts.ubuntu(
                                 fontSize: 25, color: kHeadingColor)),
                         Icon(
@@ -84,7 +84,7 @@ class PostPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Title will go here and if it overflows even more then blah",
+                          post.title,
                           maxLines: 2,
                           softWrap: false,
                           overflow: TextOverflow.ellipsis,
@@ -95,7 +95,7 @@ class PostPage extends StatelessWidget {
                           height: 6,
                         ),
                         Text(
-                          "by u/Deep_f_Value",
+                          post.user,
                           overflow: TextOverflow.ellipsis,
                           style: GoogleFonts.ubuntu(
                               fontSize: 15, color: Colors.white),
