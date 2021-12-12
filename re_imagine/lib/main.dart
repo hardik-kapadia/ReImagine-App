@@ -42,6 +42,7 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         backgroundColor: kBackgroundColor,
         body: screens[selectedIndex],
+        // body: SubCategoryPage(),
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: kBackgroundColor,
           selectedItemColor: Colors.white,
