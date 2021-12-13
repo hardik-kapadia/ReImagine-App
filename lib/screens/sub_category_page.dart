@@ -24,24 +24,27 @@ class SubCategoryPage extends StatelessWidget {
         body: Column(
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 GestureDetector(
                   onTap: () {
                     Navigator.pop(context);
                   },
-                  child: Icon(
-                    Icons.arrow_back_ios_new_sharp,
-                    size: 30,
-                    color: Colors.white,
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(5, 0, 15, 0),
+                    child: Icon(
+                      Icons.arrow_back_ios_new_sharp,
+                      size: 30,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
                 Container(
                   margin: EdgeInsets.symmetric(
-                      horizontal: size.width * 0.35,
+                      // horizontal: size.width * 0.35,
                       vertical: size.height * 0.03),
                   child: Text(
-                    'Here',
+                    category,
                     style:
                         GoogleFonts.ubuntu(fontSize: 30, color: kHeadingColor),
                   ),

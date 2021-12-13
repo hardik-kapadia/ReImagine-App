@@ -31,12 +31,12 @@ class CategoriesPage extends StatelessWidget {
           Row(
             children: [
               SinglePostContainer(
-                image: AssetImage('assets/images/CategoryBanner/battle.jpg'),
+                image: AssetImage('assets/images/CategoryBanner/1.jpg'),
                 text: 'Characters',
                 category: 'characters',
               ),
               SinglePostContainer(
-                image: AssetImage('assets/images/CategoryBanner/battle.jpg'),
+                image: AssetImage('assets/images/CategoryBanner/2.jpg'),
                 text: 'Races',
                 category: 'races',
               ),
@@ -45,12 +45,12 @@ class CategoriesPage extends StatelessWidget {
           Row(
             children: [
               SinglePostContainer(
-                image: AssetImage('assets/images/CategoryBanner/battle.jpg'),
+                image: AssetImage('assets/images/CategoryBanner/3.jpg'),
                 text: 'Lands',
                 category: 'lands',
               ),
               SinglePostContainer(
-                image: AssetImage('assets/images/CategoryBanner/battle.jpg'),
+                image: AssetImage('assets/images/CategoryBanner/4.jpg'),
                 text: 'Architecture',
                 category: 'architecture',
               ),
@@ -59,12 +59,12 @@ class CategoriesPage extends StatelessWidget {
           Row(
             children: [
               SinglePostContainer(
-                image: AssetImage('assets/images/CategoryBanner/battle.jpg'),
+                image: AssetImage('assets/images/CategoryBanner/5.jpg'),
                 text: 'Monsters',
                 category: 'monsters',
               ),
               SinglePostContainer(
-                image: AssetImage('assets/images/CategoryBanner/battle.jpg'),
+                image: AssetImage('assets/images/CategoryBanner/6.jpg'),
                 text: 'Technology',
                 category: 'technology',
               ),
