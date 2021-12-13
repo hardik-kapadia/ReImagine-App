@@ -1,19 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:re_imagine/backend/ine_helper.dart';
-import 'package:re_imagine/screens/profile_page.dart';
+import 'package:path/path.dart';
+import 'package:re_imagine/backend/db_manage.dart';
+import 'package:sqflite/sqflite.dart';
 
 import 'constants.dart';
+
+import 'backend/ine_helper.dart';
+
+import 'model/post.dart';
+
+import 'screens/profile_page.dart';
 import 'screens/categories_page.dart';
 import 'screens/home_page.dart';
 import 'screens/login_page.dart';
-import 'screens/profile_page.dart';
 import 'screens/search_page.dart';
 
 late final RedditHelper redditHelper;
+late final DBManage dbm;
+late List<Post> allBooks;
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   redditHelper = new RedditHelper();
   await redditHelper.init();
+
+  dbm = DBManage();
+  await dbm.init();
+
+  allBooks = await dbm.allPosts();
+
   runApp(MyApp());
 }
 
@@ -28,17 +44,16 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   int selectedIndex = 0;
 
   final screens = [
-      // HomeLoadingScreen(),
-      HomePage(),
-      SearchPage(),
-      CategoriesPage(),
-      ProfilePage(),
-      LoginPage()
-    ];
+    // HomeLoadingScreen(),
+    HomePage(),
+    SearchPage(),
+    CategoriesPage(),
+    ProfilePage(),
+    LoginPage()
+  ];
 
   @override
   Widget build(BuildContext context) {

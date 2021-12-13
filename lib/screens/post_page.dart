@@ -7,11 +7,24 @@ import 'package:image_downloader/image_downloader.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class PostPage extends StatelessWidget {
-
+class PostPage extends StatefulWidget {
   void goBack() {}
+
   final Post post;
+
   PostPage({required this.post});
+
+  @override
+  State<StatefulWidget> createState() {
+    return _PostPageState(post: post);
+  }
+}
+
+class _PostPageState extends State<PostPage> {
+  final Post post;
+
+  _PostPageState({required this.post});
+
   @override
   Widget build(BuildContext context) {
     DeviceSize size = DeviceSize.getDeviceSize(context);
@@ -157,18 +170,38 @@ class PostPage extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Icon(
-                      Icons.bookmark_border,
-                      size: 50,
-                      color: Colors.deepOrange.shade700,
-                    ),
-                  ),
+                      padding: const EdgeInsets.all(8.0),
+                      child: GestureDetector(
+                        onTap: () async {
+                          if (post.isBookmarked){
+                            dbm.deletePost(post.id as String);
+                            allBooks.remove(post);
+                            post.bookmark();
+                          }
+                          else {
+                            post.bookmark();
+                            dbm.insertPost(post);
+                            allBooks.add(post);
+                          }
+                          print('Taking action on posts bookmark');
+                          setState(() {});
+                        },
+                        child: Icon(
+                          post.isBookmarked
+                              ? Icons.bookmark_sharp
+                              : Icons.bookmark_border_sharp,
+                          size: 50,
+                          color: Colors.deepOrange.shade700,
+                        ),
+                      )),
                   Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: GestureDetector(
                         onTap: () async {
-                          Clipboard.setData(ClipboardData(text: "your text"));
+                          Clipboard.setData(ClipboardData(text: post.url));
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text("Copied to Clipboard"),
+                          ));
                         },
                         child: Icon(
                           Icons.share,

@@ -74,6 +74,7 @@ class ShowPosts extends StatelessWidget {
             }
           } else {
             return Scaffold(
+              backgroundColor: kBackgroundColor,
               body: Center(
                 child: SpinKitDoubleBounce(
                   color: Colors.red,

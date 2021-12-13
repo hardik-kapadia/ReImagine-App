@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:draw/draw.dart';
+import 'package:re_imagine/model/subreddit_category.dart';
 import '../model/post.dart';
 
 class RedditHelper {
@@ -17,7 +18,7 @@ class RedditHelper {
     );
   }
 
-  var allSubreddits = {
+  Map<String, dynamic> allSubreddits = {
     'characters': {
       'ImaginaryArchers',
       'ImaginaryAssassins',
@@ -122,6 +123,17 @@ class RedditHelper {
       'ImaginaryWTF',
     },
   };
+
+  final List<SubredditCategory> allCategories = [
+    SubredditCategory(1, "characters"),
+    SubredditCategory(2, "races"),
+    SubredditCategory(3, "lands"),
+    SubredditCategory(4, "architechture"),
+    SubredditCategory(5, "monsters"),
+    SubredditCategory(6, "technology"),
+    SubredditCategory(7, "fandoms"),
+    SubredditCategory(8, "misc")
+  ];
 
   List<String> getSubreddits(String category) {
     List<String>? subs = allSubreddits[category]?.toList();

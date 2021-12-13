@@ -1,26 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:re_imagine/main.dart';
 import 'package:re_imagine/model/post.dart';
 
 import '../constants.dart';
+import 'post_page.dart';
 
 class ProfilePage extends StatelessWidget {
-  
   final String name;
   final String imageurl;
-
-  final List<Post> posts = [
-    Post(id: "1"),
-    Post(id: "2", url: "assassin.jpg"),
-    Post(id: "3", url: "assassin1.jpg"),
-    Post(id: "4"),
-    Post(id: "5", url: "assassin.jpg"),
-    Post(id: "6"),
-    Post(id: "7", url: "assassin1.jpg"),
-    Post(id: "8", url: "assassin.jpg"),
-    Post(id: "8"),
-    Post(id: "10", url: "assassin.jpg")
-  ];
 
   ProfilePage(
       {this.name = 'Hardik',
@@ -30,10 +19,11 @@ class ProfilePage extends StatelessWidget {
       : super(key: key);
 
   Widget build(BuildContext context) {
-
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    
+
+    List<Post> posts = allBooks;
+
     return CustomScrollView(
       slivers: <Widget>[
         SliverAppBar(
@@ -79,48 +69,55 @@ class ProfilePage extends StatelessWidget {
           ),
         ),
         SliverStaggeredGrid.countBuilder(
-          crossAxisCount: 4,
-          mainAxisSpacing: 10,
-          crossAxisSpacing: 10,
-          itemCount: posts.length,
-          itemBuilder: (context, index) {
-            return Card(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
-              color: kBackgroundColor,
-              child: Column(
-                children: <Widget>[
-                  Stack(
-                    children: <Widget>[
-                      //Center(child: CircularProgressIndicator()),
-                      Center(
-                        child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Image.asset(
-                                "assets/images/${posts[index].url}")),
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(6),
+            crossAxisCount: 4,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+            itemCount: posts.length,
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                  onTap: () => {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PostPage(
+                                      post: posts[index],
+                                    )))
+                      },
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    color: kBackgroundColor,
                     child: Column(
                       children: <Widget>[
-                        Text(
-                          '${posts[index].title}',
-                          style: const TextStyle(color: kTextColor),
-                          textAlign: TextAlign.center,
+                        Stack(
+                          children: <Widget>[
+                            //Center(child: CircularProgressIndicator()),
+                            Center(
+                              child: Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: Image.network(posts[index].imageUrl)),
+                            ),
+                          ],
                         ),
-                        //Center(child: CircularProgressIndicator())
+                        Padding(
+                          padding: const EdgeInsets.all(6),
+                          child: Column(
+                            children: <Widget>[
+                              Text(
+                                '${allBooks[index].title}',
+                                style: const TextStyle(color: kTextColor),
+                                textAlign: TextAlign.center,
+                              ),
+                              //Center(child: CircularProgressIndicator())
+                            ],
+                          ),
+                        )
                       ],
                     ),
-                  )
-                ],
-              ),
-            );
-          },
-          staggeredTileBuilder: (index) => const StaggeredTile.fit(2),
-        ),
+                  ));
+            },
+            staggeredTileBuilder: (index) => const StaggeredTile.fit(2)),
       ],
     );
   }
