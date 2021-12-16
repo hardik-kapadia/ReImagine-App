@@ -19,6 +19,7 @@ import 'screens/search_page.dart';
 late final RedditHelper redditHelper;
 late final DBManage dbm;
 late List<Post> allBooks;
+bool homapage = false;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 

@@ -16,111 +16,81 @@ class ShowPosts extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
-    return FutureBuilder<List<Post>>(
-        future: redditHelper.getNewPosts(sub, 20),
-        builder: (context, AsyncSnapshot<List<Post>> snapshot) {
-          if (snapshot.hasData) {
-            List<Post> posts = snapshot.data as List<Post>;
-            if (posts.length > 0) {
-              return SafeArea(
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: Icon(
-                            Icons.arrow_back_ios_new_sharp,
-                            size: 30,
-                            color: Colors.white,
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.symmetric(
-                            // horizontal: width * 0.35,
-                            vertical: height * 0.03,
-                          ),
-                          child: Text(
-                            sub,
-                            style: GoogleFonts.ubuntu(
-                                fontSize: 30,
-                                color: kHeadingColor,
-                                decoration: TextDecoration.none),
-                          ),
-                        ),
-                      ],
-                    ),
-                    FeedPosts(posts: snapshot.data as List<Post>),
-                  ],
-                ),
-              );
-            } else {
-              return SafeArea(
-                  child: Container(
-                color: kBackgroundColor,
-                child: Center(
-                  child: Text(
-                    "Oops, nothing to see here",
-                    style: TextStyle(
-                        decoration: TextDecoration.none,
-                        fontSize: 20,
-                        color: kTextColor),
-                  ),
-                ),
-              ));
-            }
-          } else {
-            return Scaffold(
-              backgroundColor: kBackgroundColor,
-              body: Center(
-                child: SpinKitDoubleBounce(
-                  color: Colors.red,
-                  size: 100.0,
+    return SafeArea(
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Icon(
+                  Icons.arrow_back_ios_new_sharp,
+                  size: 30,
+                  color: Colors.white,
                 ),
               ),
-            );
-          }
-        });
-
-    // return Scaffold(
-    //   backgroundColor: kBackgroundColor,
-    //   body: SafeArea(
-    //     child: Column(
-    //       children: [
-    //         //
-    //         Row(
-    //           mainAxisAlignment: MainAxisAlignment.center,
-    //           children: [
-    //             Icon(
-    //               Icons.arrow_back_ios_new_sharp,
-    //               size: 30,
-    //               color: Colors.white,
-    //             ),
-    //             Container(
-    //               margin: EdgeInsets.symmetric(
-    //                   horizontal: width * 0.35, vertical: height * 0.03),
-    //               child: Text(
-    //                 'Here',
-    //                 style:
-    //                     GoogleFonts.ubuntu(fontSize: 30, color: kHeadingColor),
-    //               ),
-    //             ),
-    //           ],
-    //         ),
-    //         SizedBox(
-    //           height: 20,
-    //         ),
-    //         FeedPosts(
-    //           posts: [Post(id: "1"), Post(id: "2", url: "assassin.jpg")],
-    //         ),
-    //       ],
-    //     ),
-    //   ),
-    //   // bottomNavigationBar: BottomNavigationBarComponent(1),
-    // );
+              Container(
+                margin: EdgeInsets.symmetric(
+                  // horizontal: width * 0.35,
+                  vertical: height * 0.03,
+                ),
+                child: Text(
+                  sub,
+                  style: GoogleFonts.ubuntu(
+                      fontSize: 30,
+                      color: kHeadingColor,
+                      decoration: TextDecoration.none),
+                ),
+              ),
+            ],
+          ),
+          Container(
+            child: FutureBuilder<List<Post>>(
+                future: redditHelper.getNewPosts(sub, 20),
+                builder: (context, AsyncSnapshot<List<Post>> snapshot) {
+                  if (snapshot.hasData) {
+                    List<Post> posts = snapshot.data as List<Post>;
+                    if (posts.length > 0) {
+                      return FeedPosts(posts: posts);
+                    } else {
+                      return SafeArea(
+                        child: Container(
+                          color: kBackgroundColor,
+                          child: Center(
+                            child: Text(
+                              "Oops, nothing to see here",
+                              style: TextStyle(
+                                  decoration: TextDecoration.none,
+                                  fontSize: 20,
+                                  color: kTextColor),
+                            ),
+                          ),
+                        ),
+                      );
+                    }
+                  } else {
+                    return Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: kBackgroundColor,
+                        ),
+                        child: Center(
+                          child: SpinKitRotatingCircle(
+                            color: Colors.red,
+                            size: 100.0,
+                          ),
+                        ),
+                      ),
+                    );
+                  }
+                }),
+          ),
+        ],
+      ),
+    );
   }
 }
 
