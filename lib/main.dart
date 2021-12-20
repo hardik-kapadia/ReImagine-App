@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:path/path.dart';
 import 'package:re_imagine/backend/db_manage.dart';
-import 'package:sqflite/sqflite.dart';
 
 import 'constants.dart';
 

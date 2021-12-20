@@ -7,7 +7,7 @@ import '../constants.dart';
 import '../main.dart';
 
 class SubCategoryPage extends StatelessWidget {
-  String category;
+  final String category;
   // RedditHelper helper = RedditHelper();
 
   SubCategoryPage({Key? key, required this.category}) : super(key: key);

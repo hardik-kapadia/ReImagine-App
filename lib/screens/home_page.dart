@@ -4,8 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:re_imagine/components/feed_posts.dart';
 import 'package:re_imagine/model/post.dart';
 import '../constants.dart';
-import '../components/bottom_navigation_bar_components.dart';
-import '../components/categories_list_view.dart';
 import '../main.dart';
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

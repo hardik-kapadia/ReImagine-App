@@ -21,7 +21,7 @@ class DBManage {
   }
 
   Future<void> insertPost(Post post) async {
-    final db = await database;
+    final db = database;
 
     print('inserting into db');
 
@@ -33,7 +33,7 @@ class DBManage {
   }
 
   Future<List<Post>> allPosts() async {
-    final db = await database;
+    final db = database;
 
     final List<Map<String, dynamic>> maps =
         await db.query('posts', distinct: true);
@@ -44,7 +44,7 @@ class DBManage {
   }
 
   Future<void> deletePost(String id) async {
-    final db = await database;
+    final db = database;
 
     print('deleting from db');
 
@@ -56,7 +56,7 @@ class DBManage {
   }
 
   Future<bool> contains(String id) async {
-    final db = await database;
+    final db = database;
 
     print('checking for: ' + id);
 
