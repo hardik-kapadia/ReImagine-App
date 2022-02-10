@@ -16,8 +16,11 @@ import 'screens/search_page.dart';
 
 late final RedditHelper redditHelper;
 late final DBManage dbm;
+
 late List<Post> allBooks;
+
 bool homapage = false;
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -104,6 +107,7 @@ class _MyAppState extends State<MyApp> {
 }
 
 class DeviceSize {
+
   double height;
   double width;
 
@@ -113,4 +117,5 @@ class DeviceSize {
     return DeviceSize(
         MediaQuery.of(context).size.height, MediaQuery.of(context).size.width);
   }
+  
 }

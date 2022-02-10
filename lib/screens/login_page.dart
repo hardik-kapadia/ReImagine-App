@@ -39,7 +39,7 @@ class LoginPage extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                // TODO login function
+                // TODO: login function
               },
               child: Container(
                 margin: const EdgeInsets.all(10.0),
