@@ -12,8 +12,8 @@ class RedditHelper {
 
   Future<void> init() async {
     this.reddit = await Reddit.createReadOnlyInstance(
-      clientId: "5vV9qWUV_xz2VxAhBcT5sw",
-      clientSecret: "k708ngBEUrc8RET4k0ghWigSopV6TA",
+      clientId: "",//CLIENT_ID
+      clientSecret: "",//CLIENT_SECRET
       userAgent: "reIne",
     );
   }
